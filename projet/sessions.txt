@@ -1,0 +1,41 @@
+<?php
+session_start();
+$db='projet';
+$host='localhost';
+$user='root';
+$mdp='12345';
+$dsn="mysql:dbname=$db;host=$host";
+try
+{
+$dbase=new PDO($dsn, $user,$mdp);
+$dbase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch(PDOException $ex)
+{
+Die('Erreur de connexion à la bdd : '.$ex->getMessage());
+}
+
+// On est connecté
+//
+
+$mdp="12222";
+$mail="mail";
+
+$requete=$dbase->query("SELECT * FROM utilisateurs WHERE mdp='".$mdp."' AND mail='mail'");
+$result=$requete->fetchall(PDO::FETCH_ASSOC);
+if(count($result)==1)
+{
+echo 'on est connecté';
+$_SESSION['cnx']=1;
+$_SESSION['mail']=$mail;
+if($mail=="mail")
+$_SESSION['role']="admin";
+else
+$_SESSION['role']="user";
+
+}
+else
+{
+echo 'Erreur de mail / mdp';
+$_SESSION['cnx']=0;
+}

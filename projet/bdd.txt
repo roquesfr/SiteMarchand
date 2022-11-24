@@ -1,0 +1,5 @@
+mysqldump --user=root --password=12345 projet > /home/stag/save_bdd.sql
+//save une base de donnée
+
+mysql --user=root --password=12345 projet < /home/stag/save_bdd.sql
+// importe une bdd

@@ -1,0 +1,120 @@
+@charset "utf-8";
+ 
+/* -- Mise en forme du body -- */
+body {
+  background-color: #efefef; /* couleur de fond */
+  color: #212529; /* couleur du texte */
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; /* police d'écriture */
+  position:sticky; /* le body suit le scroll */
+  text-align: center; /* texte centré */
+  margin: 0; /* pas de marge, donc pas de "cadre blanc" autour de notre page internet */
+}
+
+/* -- Mise en forme du tableau -- */
+table {
+  position:auto;
+  margin-left: 50px;
+  width: 75%;
+  margin-bottom: 200px;
+}
+table, th, td {
+border-collapse: collapse;
+}
+
+/* -- Espacement et alignement dans les cellules -- */
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+th {
+    background-color:rgb(142, 218, 244);
+    color: black;
+    text-align: center;
+}
+tr {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  font-size: smaller;
+}
+
+  /* -- Personnalise les titres -- */
+h1, h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Personnalise le haut de page */
+header {
+  position:sticky; /* le header suit le scroll */
+  text-align: auto;
+  font-size: 20px;
+  background:rgb(96, 211, 249);
+  top: 0;
+  }
+header img {
+  position:absolute;  /* bloque le logo à son emplacement */
+  left: 65px; /* positionne le logo horizontalement */
+}
+   
+/* Personalisation du block de navigation (nav) */
+nav {
+  position: fixed; /* nav fix lors du scroll */
+  margin-top: -0.5em; /* pour être juste en dessous du header */
+  right: 10px;  /* position à droite */
+}
+
+/* Personnalisation et mise en évidence du block que l'on survole */
+.navigation-link {
+  display: block;
+}
+nav a,a {
+  color:rgb(83, 169, 255);
+  font-weight: bold;
+  outline: none;
+  text-decoration: none;
+}
+
+/* Change l'apparence du lien quand on le survole */
+.navigation-link:hover,
+.navigation-link:focus
+{
+  background: rgba(0, 0, 0, 0.10);
+  padding: 5%; /* taille du padding */
+}
+a:hover {
+  text-decoration:none;
+  color : rgb(43, 213, 232);
+  }
+
+/* Personnalise le pied de page */
+footer {
+  background: rgb(96, 211, 249);
+  position: fixed;
+  width: 100%;
+  bottom : 0;
+}
+footer p {
+  margin:0px;
+  font-size:x-small;
+  }
+
+.modifier {
+  position:absolute;
+  top:130px;
+  left: 500px;
+}
+
+.consulter {
+  background-color: rgba(96, 211, 249, 0.532);
+  position:absolute;
+  top:150px;
+  right:200px;
+  font-size:small;
+
+}
+.widthnone  {
+  width: 0;
+  position:absolute;
+  left:27%;
+}

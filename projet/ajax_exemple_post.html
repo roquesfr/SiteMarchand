@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <meta charset="utf-8">
+		 <title>Titre de la page</title>
+		 <script>
+			/* 
+				ReadyState Change
+				0 : Unsent 				-> Le client a été créé. open() n'a pas encore été appelé
+				1 : Opened 				-> open()a été appelé.
+				2 : HEADERS_RECEIVED 	-> send() a été appelé, et les en-têtes et le statut sont disponibles
+				3 : LOADING				-> Téléchargement; responseText contient des données partielles
+				4 : DONE				-> L\'opération est terminée
+			*/
+			 var resultat;
+			 var xhttp=new XMLHttpRequest();
+			 xhttp.open("POST","script_post.php",true);
+			 xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");			// Pour passer des variables en POST, on doit ajouter un http header
+			 xhttp.send("test=1");																	// On envoi les variables via le send
+			 xhttp.onreadystatechange=function()			// Est appelé à chaque changement de onreadystatechange
+				{
+					 if(xhttp.readyState==4 && xhttp.status==200)
+						{
+							 resultat=xhttp.responseText;
+							 alert("Resultat contient "+resultat);
+						}
+						else
+						{
+							// Plusieurs étapes sont passées avant d'avoir le readyState==4
+							// On passe par un readyState==2, pui un readyState==3 et enfin un readyState==4
+							// Ici on affiche les différentes étapes avant de passer à la 4
+							// si on a une erreur type 404 (page inexistante, on le reçoit sur le xhttp.status)
+							//
+							// Plus d'infos sur XMLHttpRequest : https://xhr.spec.whatwg.org/#states
+							// Plus d'infos sur les codes d'erreurs xhttp.status : https://developer.mozilla.org/fr/docs/Web/HTTP/Status
+							 alert("Pas de réponse!"+" readystate="+xhttp.readyState+" status="+xhttp.status);
+						}
+				}
+		 </script>
+	</head>
+	<body>
+		 
+	</body>
+</html>
